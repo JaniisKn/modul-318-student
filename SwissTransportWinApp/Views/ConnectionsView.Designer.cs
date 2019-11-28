@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtDepartureStation = new System.Windows.Forms.TextBox();
             this.txtArrivalStation = new System.Windows.Forms.TextBox();
             this.btnSearchConnections = new System.Windows.Forms.Button();
+            this.connectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lstConnections = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.connectionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDepartureStation
@@ -65,13 +68,17 @@
             this.btnSearchConnections.UseVisualStyleBackColor = false;
             this.btnSearchConnections.Click += new System.EventHandler(this.btnSearchConnections_Click);
             // 
+            // connectionsBindingSource
+            // 
+            this.connectionsBindingSource.DataSource = typeof(SwissTransport.Connections);
+            // 
             // lstConnections
             // 
             this.lstConnections.FormattingEnabled = true;
             this.lstConnections.ItemHeight = 16;
-            this.lstConnections.Location = new System.Drawing.Point(102, 193);
+            this.lstConnections.Location = new System.Drawing.Point(12, 209);
             this.lstConnections.Name = "lstConnections";
-            this.lstConnections.Size = new System.Drawing.Size(589, 228);
+            this.lstConnections.Size = new System.Drawing.Size(776, 212);
             this.lstConnections.TabIndex = 3;
             // 
             // ConnectionsView
@@ -86,6 +93,7 @@
             this.Name = "ConnectionsView";
             this.Text = "ConnectionsMenu";
             this.Load += new System.EventHandler(this.ConnectionsView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.connectionsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,6 +104,7 @@
         private System.Windows.Forms.TextBox txtDepartureStation;
         private System.Windows.Forms.TextBox txtArrivalStation;
         private System.Windows.Forms.Button btnSearchConnections;
+        private System.Windows.Forms.BindingSource connectionsBindingSource;
         private System.Windows.Forms.ListBox lstConnections;
     }
 }

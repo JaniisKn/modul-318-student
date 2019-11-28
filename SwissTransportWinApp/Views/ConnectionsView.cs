@@ -29,8 +29,18 @@ namespace SwissTransportWinApp
             //SwissTransport.Connections connections = new SwissTransport.Connections();
             //connections.ConnectionList = transport.GetConnections(txtDepartureStation.Text, txtArrivalStation.Text).ConnectionList;
             foreach (SwissTransport.Connection connection in transport.GetConnections(txtDepartureStation.Text, txtArrivalStation.Text).ConnectionList) {
-            lstConnections.Items.Add(connection.From.Station.Name);
+                lstConnections.Items.Add(getConnectionInfos(connection));
             }
+        }
+
+        private string getConnectionInfos(SwissTransport.Connection connection)
+        {
+            string departureStation = connection.From.Station.Name;
+            string departureTime = connection.From.Departure;
+            string arrivalStation = connection.To.Station.Name;
+            string arrivalTime = connection.To.Arrival;
+
+            return "von: " + departureStation + "; Abfahrtszeit: " + departureTime + "; nach: " + arrivalStation + "; Ankunftszeit: " + arrivalTime;
         }
     }
 }
