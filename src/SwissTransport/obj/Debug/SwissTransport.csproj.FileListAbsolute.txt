@@ -1,0 +1,8 @@
+C:\M318\Projektarbeit\modul-318-student\src\SwissTransport\bin\Debug\SwissTransport.dll
+C:\M318\Projektarbeit\modul-318-student\src\SwissTransport\bin\Debug\SwissTransport.pdb
+C:\M318\Projektarbeit\modul-318-student\src\SwissTransport\bin\Debug\Newtonsoft.Json.dll
+C:\M318\Projektarbeit\modul-318-student\src\SwissTransport\bin\Debug\Newtonsoft.Json.xml
+C:\M318\Projektarbeit\modul-318-student\src\SwissTransport\obj\Debug\SwissTransport.csprojAssemblyReference.cache
+C:\M318\Projektarbeit\modul-318-student\src\SwissTransport\obj\Debug\SwissTransport.csproj.CopyComplete
+C:\M318\Projektarbeit\modul-318-student\src\SwissTransport\obj\Debug\SwissTransport.dll
+C:\M318\Projektarbeit\modul-318-student\src\SwissTransport\obj\Debug\SwissTransport.pdb
