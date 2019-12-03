@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.btnSearchDepartures = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.txtDepartureStation = new System.Windows.Forms.TextBox();
+            this.lstDepartures = new System.Windows.Forms.ListBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.cboDepartureStation = new System.Windows.Forms.ComboBox();
+            this.lblDepartures = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSearchDepartures
@@ -38,38 +40,52 @@
             this.btnSearchDepartures.BackColor = System.Drawing.Color.LightGray;
             this.btnSearchDepartures.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearchDepartures.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchDepartures.Location = new System.Drawing.Point(606, 38);
+            this.btnSearchDepartures.Location = new System.Drawing.Point(764, 130);
             this.btnSearchDepartures.Name = "btnSearchDepartures";
-            this.btnSearchDepartures.Size = new System.Drawing.Size(149, 43);
+            this.btnSearchDepartures.Size = new System.Drawing.Size(206, 43);
             this.btnSearchDepartures.TabIndex = 3;
             this.btnSearchDepartures.Text = "suchen";
             this.btnSearchDepartures.UseVisualStyleBackColor = false;
+            this.btnSearchDepartures.Click += new System.EventHandler(this.btnSearchDepartures_Click);
             // 
-            // listBox1
+            // lstDepartures
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(54, 110);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(701, 292);
-            this.listBox1.TabIndex = 4;
+            this.lstDepartures.FormattingEnabled = true;
+            this.lstDepartures.ItemHeight = 16;
+            this.lstDepartures.Location = new System.Drawing.Point(12, 183);
+            this.lstDepartures.Name = "lstDepartures";
+            this.lstDepartures.Size = new System.Drawing.Size(958, 308);
+            this.lstDepartures.TabIndex = 4;
             // 
-            // txtDepartureStation
+            // cboDepartureStation
             // 
-            this.txtDepartureStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartureStation.Location = new System.Drawing.Point(54, 44);
-            this.txtDepartureStation.Name = "txtDepartureStation";
-            this.txtDepartureStation.Size = new System.Drawing.Size(510, 30);
-            this.txtDepartureStation.TabIndex = 1;
+            this.cboDepartureStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDepartureStation.FormattingEnabled = true;
+            this.cboDepartureStation.Location = new System.Drawing.Point(12, 136);
+            this.cboDepartureStation.Name = "cboDepartureStation";
+            this.cboDepartureStation.Size = new System.Drawing.Size(746, 33);
+            this.cboDepartureStation.TabIndex = 5;
+            this.cboDepartureStation.TextUpdate += new System.EventHandler(this.cboDepartureStation_TextUpdate);
+            // 
+            // lblDepartures
+            // 
+            this.lblDepartures.AutoSize = true;
+            this.lblDepartures.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.lblDepartures.Location = new System.Drawing.Point(100, 35);
+            this.lblDepartures.Name = "lblDepartures";
+            this.lblDepartures.Size = new System.Drawing.Size(779, 48);
+            this.lblDepartures.TabIndex = 6;
+            this.lblDepartures.Text = "Die nächsten Verbindungen einer Station";
             // 
             // DeparturesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(982, 503);
+            this.Controls.Add(this.lblDepartures);
+            this.Controls.Add(this.cboDepartureStation);
+            this.Controls.Add(this.lstDepartures);
             this.Controls.Add(this.btnSearchDepartures);
-            this.Controls.Add(this.txtDepartureStation);
             this.Name = "DeparturesView";
             this.Text = "Departures";
             this.ResumeLayout(false);
@@ -79,7 +95,9 @@
 
         #endregion
         private System.Windows.Forms.Button btnSearchDepartures;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox txtDepartureStation;
+        private System.Windows.Forms.ListBox lstDepartures;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ComboBox cboDepartureStation;
+        private System.Windows.Forms.Label lblDepartures;
     }
 }
