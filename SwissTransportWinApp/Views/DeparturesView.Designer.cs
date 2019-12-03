@@ -71,7 +71,7 @@
             // 
             this.lblDepartures.AutoSize = true;
             this.lblDepartures.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.lblDepartures.Location = new System.Drawing.Point(100, 35);
+            this.lblDepartures.Location = new System.Drawing.Point(86, 35);
             this.lblDepartures.Name = "lblDepartures";
             this.lblDepartures.Size = new System.Drawing.Size(779, 48);
             this.lblDepartures.TabIndex = 6;

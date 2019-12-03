@@ -40,7 +40,7 @@ namespace SwissTransportWinApp
             SwissTransport.StationBoardRoot stationBoardRoot = transport.GetStationBoard("Sursee", "8502007");
             foreach (StationBoard stationBoard in transport.GetStationBoard(cboDepartureStation.Text, "").Entries) 
             { 
-           // lstDepartures.Items.Add(stationBoard.Name + " " + stationBoard.To);            
+            lstDepartures.Items.Add(stationBoard.Name + " " + stationBoard.To);            
             }
         }
 

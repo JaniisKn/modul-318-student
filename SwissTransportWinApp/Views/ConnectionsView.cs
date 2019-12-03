@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwissTransport;
 
 namespace SwissTransportWinApp
 {
@@ -33,20 +34,15 @@ namespace SwissTransportWinApp
         {
             lstConnections.Items.Clear();
             foreach (SwissTransport.Connection connection in transport.GetConnections(cboDepartureStation.Text, cboArrivalStation.Text).ConnectionList) {
-                lstConnections.Items.Add(getConnectionInfos(connection));
+            lstConnections.Items.Add(ShowConnections(connection));
             }
         }
 
-        private string getConnectionInfos(SwissTransport.Connection connection)
+        private ListViewItem ShowConnections(Connection connection)
         {
-            string departureStation = connection.From.Station.Name;
-            string departureTime = connection.From.Departure;
-            string arrivalStation = connection.To.Station.Name;
-            string arrivalTime = connection.To.Arrival;
-
-            return "von: " + departureStation + "; Abfahrtszeit: " + departureTime + "; nach: " + arrivalStation + "; Ankunftszeit: " + arrivalTime;
+            string[] connections = {connection.From.Departure, connection.From.Station.Name, connection.To.Station.Name, connection.To.Arrival, connection.Duration, connection.From.Platform};
+            return new ListViewItem(connections);
         }
-
         private void AddItemsToDropdown(ComboBox comboBox)
         {
             if (comboBox.Text.Length > 3)
@@ -74,6 +70,11 @@ namespace SwissTransportWinApp
             cboArrivalStation.Text = newArrivalStation;
             ClearItemsOutOfCbo(cboDepartureStation);
             ClearItemsOutOfCbo(cboArrivalStation);
+        }
+
+        private void lstConnections_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

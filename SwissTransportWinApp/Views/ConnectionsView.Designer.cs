@@ -30,12 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnSearchConnections = new System.Windows.Forms.Button();
-            this.lstConnections = new System.Windows.Forms.ListBox();
             this.cboDepartureStation = new System.Windows.Forms.ComboBox();
             this.cboArrivalStation = new System.Windows.Forms.ComboBox();
             this.btnChangeStations = new System.Windows.Forms.Button();
             this.connectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblConnections = new System.Windows.Forms.Label();
+            this.lstConnections = new System.Windows.Forms.ListView();
+            this.cDepartureTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cDepartureStation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cArrivalStation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cArrivalTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cTravelTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cLine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.connectionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,16 +57,6 @@
             this.btnSearchConnections.Text = "suchen";
             this.btnSearchConnections.UseVisualStyleBackColor = false;
             this.btnSearchConnections.Click += new System.EventHandler(this.btnSearchConnections_Click);
-            // 
-            // lstConnections
-            // 
-            this.lstConnections.FormattingEnabled = true;
-            this.lstConnections.ItemHeight = 16;
-            this.lstConnections.Location = new System.Drawing.Point(12, 245);
-            this.lstConnections.Name = "lstConnections";
-            this.lstConnections.Size = new System.Drawing.Size(958, 244);
-            this.lstConnections.TabIndex = 4;
-            this.lstConnections.TabStop = false;
             // 
             // cboDepartureStation
             // 
@@ -103,22 +99,70 @@
             // 
             this.lblConnections.AutoSize = true;
             this.lblConnections.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.lblConnections.Location = new System.Drawing.Point(243, 9);
+            this.lblConnections.Location = new System.Drawing.Point(243, 26);
             this.lblConnections.Name = "lblConnections";
             this.lblConnections.Size = new System.Drawing.Size(496, 48);
             this.lblConnections.TabIndex = 5;
             this.lblConnections.Text = "ÖV Verbindungen suchen";
             // 
+            // lstConnections
+            // 
+            this.lstConnections.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cDepartureTime,
+            this.cDepartureStation,
+            this.cArrivalStation,
+            this.cArrivalTime,
+            this.cTravelTime,
+            this.cLine});
+            this.lstConnections.HideSelection = false;
+            this.lstConnections.Location = new System.Drawing.Point(12, 241);
+            this.lstConnections.Name = "lstConnections";
+            this.lstConnections.Size = new System.Drawing.Size(958, 289);
+            this.lstConnections.TabIndex = 7;
+            this.lstConnections.UseCompatibleStateImageBehavior = false;
+            this.lstConnections.View = System.Windows.Forms.View.Details;
+            this.lstConnections.SelectedIndexChanged += new System.EventHandler(this.lstConnections_SelectedIndexChanged);
+            // 
+            // cDepartureTime
+            // 
+            this.cDepartureTime.Text = "Abfahrtszeit";
+            this.cDepartureTime.Width = 140;
+            // 
+            // cDepartureStation
+            // 
+            this.cDepartureStation.Text = "Von";
+            this.cDepartureStation.Width = 180;
+            // 
+            // cArrivalStation
+            // 
+            this.cArrivalStation.Text = "Nach";
+            this.cArrivalStation.Width = 180;
+            // 
+            // cArrivalTime
+            // 
+            this.cArrivalTime.Text = "Ankunftszeit";
+            this.cArrivalTime.Width = 140;
+            // 
+            // cTravelTime
+            // 
+            this.cTravelTime.Text = "Reisezeit";
+            this.cTravelTime.Width = 100;
+            // 
+            // cLine
+            // 
+            this.cLine.Text = "Linie";
+            this.cLine.Width = 100;
+            // 
             // ConnectionsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 503);
+            this.ClientSize = new System.Drawing.Size(1232, 641);
+            this.Controls.Add(this.lstConnections);
             this.Controls.Add(this.lblConnections);
             this.Controls.Add(this.btnChangeStations);
             this.Controls.Add(this.cboArrivalStation);
             this.Controls.Add(this.cboDepartureStation);
-            this.Controls.Add(this.lstConnections);
             this.Controls.Add(this.btnSearchConnections);
             this.Name = "ConnectionsView";
             this.Text = "ConnectionsMenu";
@@ -131,10 +175,16 @@
         #endregion
         private System.Windows.Forms.Button btnSearchConnections;
         private System.Windows.Forms.BindingSource connectionsBindingSource;
-        private System.Windows.Forms.ListBox lstConnections;
         private System.Windows.Forms.ComboBox cboDepartureStation;
         private System.Windows.Forms.ComboBox cboArrivalStation;
         private System.Windows.Forms.Button btnChangeStations;
         private System.Windows.Forms.Label lblConnections;
+        private System.Windows.Forms.ListView lstConnections;
+        private System.Windows.Forms.ColumnHeader cDepartureTime;
+        private System.Windows.Forms.ColumnHeader cDepartureStation;
+        private System.Windows.Forms.ColumnHeader cArrivalStation;
+        private System.Windows.Forms.ColumnHeader cArrivalTime;
+        private System.Windows.Forms.ColumnHeader cTravelTime;
+        private System.Windows.Forms.ColumnHeader cLine;
     }
 }
