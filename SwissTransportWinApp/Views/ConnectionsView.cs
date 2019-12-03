@@ -17,6 +17,17 @@ namespace SwissTransportWinApp
         {
             InitializeComponent();
         }
+        private void cboDepartureStation_TextUpdate(object sender, EventArgs e)
+        {
+            ClearItemsOutOfCbo(cboDepartureStation);
+            AddItemsToDropdown(cboDepartureStation);
+        }
+
+        private void cboArrivalStation_TextUpdate(object sender, EventArgs e)
+        {
+            ClearItemsOutOfCbo(cboArrivalStation);
+            AddItemsToDropdown(cboArrivalStation);
+        }
 
         private void btnSearchConnections_Click(object sender, EventArgs e)
         {
@@ -36,23 +47,11 @@ namespace SwissTransportWinApp
             return "von: " + departureStation + "; Abfahrtszeit: " + departureTime + "; nach: " + arrivalStation + "; Ankunftszeit: " + arrivalTime;
         }
 
-        private void cboDepartureStation_TextChanged(object sender, EventArgs e)
-        {
-            // ClearItemsOutOfCbo(cboDepartureStation);
-            AddItemsToDropdown(cboDepartureStation);
-        }
-
-
-        private void cboArrivalStation_TextChanged(object sender, EventArgs e)
-        {
-           // ClearItemsOutOfCbo(cboArrivalStation);
-            AddItemsToDropdown(cboArrivalStation);
-        }
-
         private void AddItemsToDropdown(ComboBox comboBox)
         {
             if (comboBox.Text.Length > 3)
             {
+                comboBox.DroppedDown = true;
                 foreach (SwissTransport.Station station in transport.GetStations(comboBox.Text).StationList)
                 {
                     if (station.Name != null)
@@ -66,6 +65,15 @@ namespace SwissTransportWinApp
             comboBox.Items.Clear();
             comboBox.SelectionStart = comboBox.Text.Length;
             comboBox.SelectionLength = 0;
+        }
+
+        private void btnChangeStations_Click(object sender, EventArgs e)
+        {
+            string newArrivalStation = cboDepartureStation.Text;
+            cboDepartureStation.Text = cboArrivalStation.Text;
+            cboArrivalStation.Text = newArrivalStation;
+            ClearItemsOutOfCbo(cboDepartureStation);
+            ClearItemsOutOfCbo(cboArrivalStation);
         }
     }
 }
