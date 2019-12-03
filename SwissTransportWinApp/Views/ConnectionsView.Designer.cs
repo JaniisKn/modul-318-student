@@ -94,7 +94,6 @@
             this.Controls.Add(this.btnSearchConnections);
             this.Name = "ConnectionsView";
             this.Text = "ConnectionsMenu";
-            this.Load += new System.EventHandler(this.ConnectionsView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.connectionsBindingSource)).EndInit();
             this.ResumeLayout(false);
 

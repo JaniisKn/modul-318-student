@@ -18,16 +18,9 @@ namespace SwissTransportWinApp
             InitializeComponent();
         }
 
-        private void ConnectionsView_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearchConnections_Click(object sender, EventArgs e)
         {
             lstConnections.Items.Clear();
-            //SwissTransport.Connections connections = new SwissTransport.Connections();
-            //connections.ConnectionList = transport.GetConnections(txtDepartureStation.Text, txtArrivalStation.Text).ConnectionList;
             foreach (SwissTransport.Connection connection in transport.GetConnections(cboDepartureStation.Text, cboArrivalStation.Text).ConnectionList) {
                 lstConnections.Items.Add(getConnectionInfos(connection));
             }
@@ -45,28 +38,34 @@ namespace SwissTransportWinApp
 
         private void cboDepartureStation_TextChanged(object sender, EventArgs e)
         {
-            //cboDepartureStation.Items.Clear();
-            //cboArrivalStation.SelectionStart = cboArrivalStation.Text.Length;
-            if (cboDepartureStation.Text.Length > 3)
+            // ClearItemsOutOfCbo(cboDepartureStation);
+            AddItemsToDropdown(cboDepartureStation);
+        }
+
+
+        private void cboArrivalStation_TextChanged(object sender, EventArgs e)
+        {
+           // ClearItemsOutOfCbo(cboArrivalStation);
+            AddItemsToDropdown(cboArrivalStation);
+        }
+
+        private void AddItemsToDropdown(ComboBox comboBox)
+        {
+            if (comboBox.Text.Length > 3)
             {
-                foreach (SwissTransport.Station station in transport.GetStations(cboDepartureStation.Text).StationList)
+                foreach (SwissTransport.Station station in transport.GetStations(comboBox.Text).StationList)
                 {
-                    if (station != null) { 
-                        cboDepartureStation.Items.Add(station.Name);
-                    }
+                    if (station.Name != null)
+                        comboBox.Items.Add(station.Name);
                 }
             }
         }
 
-        private void cboArrivalStation_TextChanged(object sender, EventArgs e)
+        private void ClearItemsOutOfCbo(ComboBox comboBox)
         {
-            if (cboArrivalStation.Text.Length > 3)
-            {
-                foreach (SwissTransport.Station station in transport.GetStations(cboArrivalStation.Text).StationList)
-                {
-                    cboArrivalStation.Items.Add(station.Name);
-                }
-            }
+            comboBox.Items.Clear();
+            comboBox.SelectionStart = comboBox.Text.Length;
+            comboBox.SelectionLength = 0;
         }
     }
 }
