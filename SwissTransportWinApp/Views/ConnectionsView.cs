@@ -26,8 +26,9 @@ namespace SwissTransportWinApp
         private void btnSearchConnections_Click(object sender, EventArgs e)
         {
             lstConnections.Items.Clear();
-            foreach (SwissTransport.Connection connection in transport.GetConnections(cboDepartureStation.Text, cboArrivalStation.Text).ConnectionList) {
-            lstConnections.Items.Add(ShowConnections(connection));
+            string date = dtpConnections.Value.Year + "-" + dtpConnections.Value.Month + "-" + dtpConnections.Value.Day;
+            foreach (SwissTransport.Connection connection in transport.GetConnections(cboDepartureStation.Text, cboArrivalStation.Text, date, txtTimeConnections.Text).ConnectionList) {
+                lstConnections.Items.Add(ShowConnections(connection));
             }
         }
 
