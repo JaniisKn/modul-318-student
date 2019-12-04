@@ -1,5 +1,6 @@
 ﻿using SwissTransport;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SwissTransportWinApp
@@ -10,15 +11,18 @@ namespace SwissTransportWinApp
         public ConnectionsView()
         {
             InitializeComponent();
+            txtTimeConnections.Text = DateTime.Now.ToString("HH:mm");
         }
         private void cboDepartureStation_TextUpdate(object sender, EventArgs e)
         {
+            cboDepartureStation.BackColor = SystemColors.Window;
             ClearItemsOutOfCbo(cboDepartureStation);
             AddItemsToDropdown(cboDepartureStation);
         }
 
         private void cboArrivalStation_TextUpdate(object sender, EventArgs e)
         {
+            cboArrivalStation.BackColor = SystemColors.Window; 
             ClearItemsOutOfCbo(cboArrivalStation);
             AddItemsToDropdown(cboArrivalStation);
         }
@@ -26,10 +30,28 @@ namespace SwissTransportWinApp
         private void btnSearchConnections_Click(object sender, EventArgs e)
         {
             lstConnections.Items.Clear();
-            string date = dtpConnections.Value.Year + "-" + dtpConnections.Value.Month + "-" + dtpConnections.Value.Day;
-            foreach (SwissTransport.Connection connection in transport.GetConnections(cboDepartureStation.Text, cboArrivalStation.Text, date, txtTimeConnections.Text).ConnectionList) {
-                lstConnections.Items.Add(ShowConnections(connection));
+            if (AreStationsGiven()) { 
+                string date = dtpConnections.Value.Year + "-" + dtpConnections.Value.Month + "-" + dtpConnections.Value.Day;
+                foreach (SwissTransport.Connection connection in transport.GetConnections(cboDepartureStation.Text, cboArrivalStation.Text, date, txtTimeConnections.Text).ConnectionList) {
+                    lstConnections.Items.Add(ShowConnections(connection));
+                }            
             }
+        }
+
+        private bool AreStationsGiven()
+        {
+            bool returnValue = true;
+            if (cboArrivalStation.Text.Length <= 0 || cboArrivalStation.Text == null) 
+            {
+                cboArrivalStation.BackColor = Color.FromArgb(255, 92, 92);
+                returnValue = false;
+            } 
+            if (cboDepartureStation.Text.Length <= 0 || cboDepartureStation.Text == null)
+            {
+                cboDepartureStation.BackColor = Color.FromArgb(255, 92, 92);
+                returnValue = false;
+            }
+            return returnValue;
         }
 
         private ListViewItem ShowConnections(Connection connection)
@@ -63,14 +85,10 @@ namespace SwissTransportWinApp
             ClearItemsOutOfCbo(cboArrivalStation);
         }
 
-        private void lstConnections_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtTimeConnections_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtTimeConnections.Text.Length <= 0)
+                txtTimeConnections.Text = "HH:mm";
         }
     }
 }

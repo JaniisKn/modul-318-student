@@ -52,13 +52,13 @@
             // 
             // btnSearchConnections
             // 
-            this.btnSearchConnections.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSearchConnections.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSearchConnections.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearchConnections.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchConnections.Location = new System.Drawing.Point(412, 226);
             this.btnSearchConnections.Name = "btnSearchConnections";
             this.btnSearchConnections.Size = new System.Drawing.Size(149, 43);
-            this.btnSearchConnections.TabIndex = 2;
+            this.btnSearchConnections.TabIndex = 4;
             this.btnSearchConnections.Text = "suchen";
             this.btnSearchConnections.UseVisualStyleBackColor = false;
             this.btnSearchConnections.Click += new System.EventHandler(this.btnSearchConnections_Click);
@@ -103,14 +103,15 @@
             this.cArrivalTime,
             this.cTravelTime,
             this.cLine});
+            this.lstConnections.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstConnections.HideSelection = false;
             this.lstConnections.Location = new System.Drawing.Point(12, 304);
             this.lstConnections.Name = "lstConnections";
             this.lstConnections.Size = new System.Drawing.Size(958, 226);
             this.lstConnections.TabIndex = 7;
+            this.lstConnections.TabStop = false;
             this.lstConnections.UseCompatibleStateImageBehavior = false;
             this.lstConnections.View = System.Windows.Forms.View.Details;
-            this.lstConnections.SelectedIndexChanged += new System.EventHandler(this.lstConnections_SelectedIndexChanged);
             // 
             // cDate
             // 
@@ -119,23 +120,23 @@
             // 
             // cDepartureTime
             // 
-            this.cDepartureTime.Text = "Abfahrtszeit";
-            this.cDepartureTime.Width = 80;
+            this.cDepartureTime.Text = "Ab";
+            this.cDepartureTime.Width = 100;
             // 
             // cDepartureStation
             // 
             this.cDepartureStation.Text = "Von";
-            this.cDepartureStation.Width = 100;
+            this.cDepartureStation.Width = 150;
             // 
             // cArrivalStation
             // 
             this.cArrivalStation.Text = "Nach";
-            this.cArrivalStation.Width = 100;
+            this.cArrivalStation.Width = 150;
             // 
             // cArrivalTime
             // 
-            this.cArrivalTime.Text = "Ankunftszeit";
-            this.cArrivalTime.Width = 80;
+            this.cArrivalTime.Text = "An";
+            this.cArrivalTime.Width = 100;
             // 
             // cTravelTime
             // 
@@ -156,7 +157,7 @@
             this.btnChangeStations.Location = new System.Drawing.Point(447, 108);
             this.btnChangeStations.Name = "btnChangeStations";
             this.btnChangeStations.Size = new System.Drawing.Size(86, 48);
-            this.btnChangeStations.TabIndex = 3;
+            this.btnChangeStations.TabIndex = 5;
             this.btnChangeStations.UseVisualStyleBackColor = false;
             this.btnChangeStations.Click += new System.EventHandler(this.btnChangeStations_Click);
             // 
@@ -172,7 +173,7 @@
             this.dtpConnections.Location = new System.Drawing.Point(355, 184);
             this.dtpConnections.Name = "dtpConnections";
             this.dtpConnections.Size = new System.Drawing.Size(132, 27);
-            this.dtpConnections.TabIndex = 10;
+            this.dtpConnections.TabIndex = 2;
             // 
             // txtTimeConnections
             // 
@@ -180,8 +181,8 @@
             this.txtTimeConnections.Location = new System.Drawing.Point(493, 184);
             this.txtTimeConnections.Name = "txtTimeConnections";
             this.txtTimeConnections.Size = new System.Drawing.Size(119, 27);
-            this.txtTimeConnections.TabIndex = 11;
-            this.txtTimeConnections.Text = "HH:MM";
+            this.txtTimeConnections.TabIndex = 3;
+            this.txtTimeConnections.Text = "HH:mm";
             this.txtTimeConnections.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTimeConnections.TextChanged += new System.EventHandler(this.txtTimeConnections_TextChanged);
             // 

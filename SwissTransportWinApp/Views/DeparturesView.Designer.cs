@@ -53,6 +53,7 @@
             // 
             // cboDepartureStation
             // 
+            this.cboDepartureStation.BackColor = System.Drawing.SystemColors.Window;
             this.cboDepartureStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDepartureStation.FormattingEnabled = true;
             this.cboDepartureStation.Location = new System.Drawing.Point(12, 136);
@@ -77,6 +78,7 @@
             this.cDepartureTime,
             this.cArrivalStation,
             this.cLine});
+            this.lstvDepartures.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvDepartures.HideSelection = false;
             this.lstvDepartures.Location = new System.Drawing.Point(12, 179);
             this.lstvDepartures.Name = "lstvDepartures";
