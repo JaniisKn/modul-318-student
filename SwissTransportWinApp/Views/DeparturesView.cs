@@ -24,34 +24,27 @@ namespace SwissTransportWinApp
             cboDepartureStation.Items.Clear();
             cboDepartureStation.SelectionStart = cboDepartureStation.Text.Length;
             cboDepartureStation.SelectionLength = 0;
-            if (cboDepartureStation.Text.Length >= 3)
-            {
+                cboDepartureStation.DroppedDown = true;
                 foreach (SwissTransport.Station station in transport.GetStations(cboDepartureStation.Text).StationList)
                 {
                     if (station.Name != null)
                         cboDepartureStation.Items.Add(station.Name);
                 }
-            }
         }
 
         private void btnSearchDepartures_Click(object sender, EventArgs e)
         {
-            lstDepartures.Items.Clear();
-            SwissTransport.StationBoardRoot stationBoardRoot = transport.GetStationBoard("Sursee", "8502007");
+            lstvDepartures.Items.Clear();
             foreach (StationBoard stationBoard in transport.GetStationBoard(cboDepartureStation.Text, "").Entries) 
-            { 
-            lstDepartures.Items.Add(stationBoard.Name + " " + stationBoard.To);            
+            {
+                lstvDepartures.Items.Add(ShowDepartures(stationBoard));
             }
         }
 
-        private string getConnectionInfos(Connection connection)
+        private ListViewItem ShowDepartures(StationBoard stationBoard)
         {
-            string departureStation = connection.From.Station.Name;
-            string departureTime = connection.From.Departure.ToString();
-            string arrivalStation = connection.To.Station.Name;
-            string arrivalTime = connection.To.Arrival.ToString();
-
-            return "von: " + departureStation + "; Abfahrtszeit: " + departureTime + "; nach: " + arrivalStation + "; Ankunftszeit: " + arrivalTime;
+            string[] departures = { stationBoard.Stop.Departure.ToString().Substring(11,5), stationBoard.To, stationBoard.Category + stationBoard.Number};
+            return new ListViewItem(departures);
         }
     }
 }

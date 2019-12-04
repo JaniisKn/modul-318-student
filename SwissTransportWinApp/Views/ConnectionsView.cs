@@ -33,20 +33,17 @@ namespace SwissTransportWinApp
 
         private ListViewItem ShowConnections(Connection connection)
         {
-            string[] connections = {connection.From.Departure.ToString(), connection.From.Station.Name, connection.To.Station.Name, connection.To.Arrival.ToString(), connection.Duration.Substring(3, 5), connection.From.Platform};
+            string[] connections = {connection.From.Departure.ToString().Substring(0,10) ,connection.From.Departure.ToString().Substring(11, 5), connection.From.Station.Name, connection.To.Station.Name, connection.To.Arrival.ToString().Substring(11, 5), connection.Duration.Substring(3, 5), connection.From.Platform};
             return new ListViewItem(connections);
         }
         private void AddItemsToDropdown(ComboBox comboBox)
         {
-            if (comboBox.Text.Length > 3)
-            {
                 comboBox.DroppedDown = true;
                 foreach (SwissTransport.Station station in transport.GetStations(comboBox.Text).StationList)
                 {
                     if (station.Name != null)
                         comboBox.Items.Add(station.Name);
                 }
-            }
         }
 
         private void ClearItemsOutOfCbo(ComboBox comboBox)
@@ -66,6 +63,11 @@ namespace SwissTransportWinApp
         }
 
         private void lstConnections_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTimeConnections_TextChanged(object sender, EventArgs e)
         {
 
         }

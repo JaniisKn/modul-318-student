@@ -34,6 +34,7 @@
             this.cboArrivalStation = new System.Windows.Forms.ComboBox();
             this.lblConnections = new System.Windows.Forms.Label();
             this.lstConnections = new System.Windows.Forms.ListView();
+            this.cDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cDepartureTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cDepartureStation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cArrivalStation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,8 +43,10 @@
             this.cLine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnChangeStations = new System.Windows.Forms.Button();
             this.connectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnChangeDate = new System.Windows.Forms.Button();
-            this.btnChangeTime = new System.Windows.Forms.Button();
+            this.dtpConnections = new System.Windows.Forms.DateTimePicker();
+            this.txtTimeConnections = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblDateTimeConnection = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.connectionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +55,7 @@
             this.btnSearchConnections.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSearchConnections.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearchConnections.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchConnections.Location = new System.Drawing.Point(415, 232);
+            this.btnSearchConnections.Location = new System.Drawing.Point(412, 226);
             this.btnSearchConnections.Name = "btnSearchConnections";
             this.btnSearchConnections.Size = new System.Drawing.Size(149, 43);
             this.btnSearchConnections.TabIndex = 2;
@@ -93,6 +96,7 @@
             // lstConnections
             // 
             this.lstConnections.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cDate,
             this.cDepartureTime,
             this.cDepartureStation,
             this.cArrivalStation,
@@ -108,35 +112,40 @@
             this.lstConnections.View = System.Windows.Forms.View.Details;
             this.lstConnections.SelectedIndexChanged += new System.EventHandler(this.lstConnections_SelectedIndexChanged);
             // 
+            // cDate
+            // 
+            this.cDate.Text = "Datum";
+            this.cDate.Width = 80;
+            // 
             // cDepartureTime
             // 
             this.cDepartureTime.Text = "Abfahrtszeit";
-            this.cDepartureTime.Width = 140;
+            this.cDepartureTime.Width = 80;
             // 
             // cDepartureStation
             // 
             this.cDepartureStation.Text = "Von";
-            this.cDepartureStation.Width = 180;
+            this.cDepartureStation.Width = 100;
             // 
             // cArrivalStation
             // 
             this.cArrivalStation.Text = "Nach";
-            this.cArrivalStation.Width = 180;
+            this.cArrivalStation.Width = 100;
             // 
             // cArrivalTime
             // 
             this.cArrivalTime.Text = "Ankunftszeit";
-            this.cArrivalTime.Width = 140;
+            this.cArrivalTime.Width = 80;
             // 
             // cTravelTime
             // 
             this.cTravelTime.Text = "Reisezeit";
-            this.cTravelTime.Width = 100;
+            this.cTravelTime.Width = 80;
             // 
             // cLine
             // 
             this.cLine.Text = "Linie";
-            this.cLine.Width = 100;
+            this.cLine.Width = 50;
             // 
             // btnChangeStations
             // 
@@ -155,37 +164,55 @@
             // 
             this.connectionsBindingSource.DataSource = typeof(SwissTransport.Connections);
             // 
-            // btnChangeDate
+            // dtpConnections
             // 
-            this.btnChangeDate.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnChangeDate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnChangeDate.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeDate.Location = new System.Drawing.Point(324, 171);
-            this.btnChangeDate.Name = "btnChangeDate";
-            this.btnChangeDate.Size = new System.Drawing.Size(149, 43);
-            this.btnChangeDate.TabIndex = 8;
-            this.btnChangeDate.Text = "Datum";
-            this.btnChangeDate.UseVisualStyleBackColor = false;
+            this.dtpConnections.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConnections.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConnections.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpConnections.Location = new System.Drawing.Point(355, 184);
+            this.dtpConnections.Name = "dtpConnections";
+            this.dtpConnections.Size = new System.Drawing.Size(132, 27);
+            this.dtpConnections.TabIndex = 10;
             // 
-            // btnChangeTime
+            // txtTimeConnections
             // 
-            this.btnChangeTime.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnChangeTime.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnChangeTime.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeTime.Location = new System.Drawing.Point(509, 171);
-            this.btnChangeTime.Name = "btnChangeTime";
-            this.btnChangeTime.Size = new System.Drawing.Size(149, 43);
-            this.btnChangeTime.TabIndex = 9;
-            this.btnChangeTime.Text = "Zeit";
-            this.btnChangeTime.UseVisualStyleBackColor = false;
+            this.txtTimeConnections.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimeConnections.Location = new System.Drawing.Point(493, 184);
+            this.txtTimeConnections.Name = "txtTimeConnections";
+            this.txtTimeConnections.Size = new System.Drawing.Size(119, 27);
+            this.txtTimeConnections.TabIndex = 11;
+            this.txtTimeConnections.Text = "HH:MM";
+            this.txtTimeConnections.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTimeConnections.TextChanged += new System.EventHandler(this.txtTimeConnections_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "label1";
+            // 
+            // lblDateTimeConnection
+            // 
+            this.lblDateTimeConnection.AutoSize = true;
+            this.lblDateTimeConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTimeConnection.Location = new System.Drawing.Point(333, 161);
+            this.lblDateTimeConnection.Name = "lblDateTimeConnection";
+            this.lblDateTimeConnection.Size = new System.Drawing.Size(301, 20);
+            this.lblDateTimeConnection.TabIndex = 13;
+            this.lblDateTimeConnection.Text = "Eingabe der gewünschten Abfahrtszeit:";
             // 
             // ConnectionsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 503);
-            this.Controls.Add(this.btnChangeTime);
-            this.Controls.Add(this.btnChangeDate);
+            this.Controls.Add(this.lblDateTimeConnection);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtTimeConnections);
+            this.Controls.Add(this.dtpConnections);
             this.Controls.Add(this.lstConnections);
             this.Controls.Add(this.lblConnections);
             this.Controls.Add(this.btnChangeStations);
@@ -214,7 +241,10 @@
         private System.Windows.Forms.ColumnHeader cArrivalTime;
         private System.Windows.Forms.ColumnHeader cTravelTime;
         private System.Windows.Forms.ColumnHeader cLine;
-        private System.Windows.Forms.Button btnChangeDate;
-        private System.Windows.Forms.Button btnChangeTime;
+        private System.Windows.Forms.ColumnHeader cDate;
+        private System.Windows.Forms.DateTimePicker dtpConnections;
+        private System.Windows.Forms.TextBox txtTimeConnections;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDateTimeConnection;
     }
 }
