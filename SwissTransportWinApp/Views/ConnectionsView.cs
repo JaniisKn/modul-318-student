@@ -7,10 +7,11 @@ namespace SwissTransportWinApp
 {
     public partial class ConnectionsView : Form
     {
-        private SwissTransport.ITransport transport = new SwissTransport.Transport();
+        private SwissTransport.ITransport transport;
         public ConnectionsView()
         {
             InitializeComponent();
+            transport = new SwissTransport.Transport();
             txtTimeConnections.Text = DateTime.Now.ToString("HH:mm");
         }
         private void cboDepartureStation_TextUpdate(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace SwissTransportWinApp
         private void btnSearchConnections_Click(object sender, EventArgs e)
         {
             lstConnections.Items.Clear();
-            if (AreStationsGiven()) { 
+            if (AreStationFieldsFilled()) { 
                 string date = dtpConnections.Value.Year + "-" + dtpConnections.Value.Month + "-" + dtpConnections.Value.Day;
                 foreach (SwissTransport.Connection connection in transport.GetConnections(cboDepartureStation.Text, cboArrivalStation.Text, date, txtTimeConnections.Text).ConnectionList) {
                     lstConnections.Items.Add(ShowConnections(connection));
@@ -38,7 +39,7 @@ namespace SwissTransportWinApp
             }
         }
 
-        private bool AreStationsGiven()
+        private bool AreStationFieldsFilled()
         {
             bool returnValue = true;
             if (cboArrivalStation.Text.Length <= 0 || cboArrivalStation.Text == null) 

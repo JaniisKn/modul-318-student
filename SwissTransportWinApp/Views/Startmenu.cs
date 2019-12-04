@@ -20,7 +20,7 @@ namespace SwissTransportWinApp
         private void btnGoToConnection_Click_1(object sender, EventArgs e)
         {
             ConnectionsView connectionsView = new ConnectionsView();
-            connectionsView.ShowDialog();
+                    connectionsView.ShowDialog();
         }
 
         private void btnGoToDepartures_Click_1(object sender, EventArgs e)
