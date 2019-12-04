@@ -36,11 +36,12 @@
             this.cDepartureTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cArrivalStation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cLine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblStation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSearchDepartures
             // 
-            this.btnSearchDepartures.BackColor = System.Drawing.Color.LightGray;
+            this.btnSearchDepartures.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSearchDepartures.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearchDepartures.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchDepartures.Location = new System.Drawing.Point(764, 130);
@@ -102,17 +103,28 @@
             this.cLine.Text = "Linie";
             this.cLine.Width = 100;
             // 
+            // lblStation
+            // 
+            this.lblStation.AutoSize = true;
+            this.lblStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStation.Location = new System.Drawing.Point(13, 112);
+            this.lblStation.Name = "lblStation";
+            this.lblStation.Size = new System.Drawing.Size(61, 20);
+            this.lblStation.TabIndex = 7;
+            this.lblStation.Text = "Station";
+            // 
             // DeparturesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 503);
+            this.Controls.Add(this.lblStation);
             this.Controls.Add(this.lstvDepartures);
             this.Controls.Add(this.lblDepartures);
             this.Controls.Add(this.cboDepartureStation);
             this.Controls.Add(this.btnSearchDepartures);
             this.Name = "DeparturesView";
-            this.Text = "Departures";
+            this.Text = "Abfahrtstafel";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +139,6 @@
         private System.Windows.Forms.ColumnHeader cDepartureTime;
         private System.Windows.Forms.ColumnHeader cArrivalStation;
         private System.Windows.Forms.ColumnHeader cLine;
+        private System.Windows.Forms.Label lblStation;
     }
 }

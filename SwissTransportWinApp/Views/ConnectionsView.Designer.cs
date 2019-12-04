@@ -45,14 +45,15 @@
             this.connectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtpConnections = new System.Windows.Forms.DateTimePicker();
             this.txtTimeConnections = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblDateTimeConnection = new System.Windows.Forms.Label();
+            this.lblDepartureStation = new System.Windows.Forms.Label();
+            this.lblArrivalStation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.connectionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSearchConnections
             // 
-            this.btnSearchConnections.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearchConnections.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSearchConnections.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearchConnections.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchConnections.Location = new System.Drawing.Point(412, 226);
@@ -186,15 +187,6 @@
             this.txtTimeConnections.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTimeConnections.TextChanged += new System.EventHandler(this.txtTimeConnections_TextChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
-            // 
             // lblDateTimeConnection
             // 
             this.lblDateTimeConnection.AutoSize = true;
@@ -205,13 +197,34 @@
             this.lblDateTimeConnection.TabIndex = 13;
             this.lblDateTimeConnection.Text = "Eingabe der gewünschten Abfahrtszeit:";
             // 
+            // lblDepartureStation
+            // 
+            this.lblDepartureStation.AutoSize = true;
+            this.lblDepartureStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartureStation.Location = new System.Drawing.Point(12, 94);
+            this.lblDepartureStation.Name = "lblDepartureStation";
+            this.lblDepartureStation.Size = new System.Drawing.Size(43, 20);
+            this.lblDepartureStation.TabIndex = 14;
+            this.lblDepartureStation.Text = "Von:";
+            // 
+            // lblArrivalStation
+            // 
+            this.lblArrivalStation.AutoSize = true;
+            this.lblArrivalStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArrivalStation.Location = new System.Drawing.Point(546, 94);
+            this.lblArrivalStation.Name = "lblArrivalStation";
+            this.lblArrivalStation.Size = new System.Drawing.Size(53, 20);
+            this.lblArrivalStation.TabIndex = 15;
+            this.lblArrivalStation.Text = "Nach:";
+            // 
             // ConnectionsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 503);
+            this.Controls.Add(this.lblArrivalStation);
+            this.Controls.Add(this.lblDepartureStation);
             this.Controls.Add(this.lblDateTimeConnection);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTimeConnections);
             this.Controls.Add(this.dtpConnections);
             this.Controls.Add(this.lstConnections);
@@ -221,7 +234,7 @@
             this.Controls.Add(this.cboDepartureStation);
             this.Controls.Add(this.btnSearchConnections);
             this.Name = "ConnectionsView";
-            this.Text = "ConnectionsMenu";
+            this.Text = "Verbindungen";
             ((System.ComponentModel.ISupportInitialize)(this.connectionsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -245,7 +258,8 @@
         private System.Windows.Forms.ColumnHeader cDate;
         private System.Windows.Forms.DateTimePicker dtpConnections;
         private System.Windows.Forms.TextBox txtTimeConnections;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDateTimeConnection;
+        private System.Windows.Forms.Label lblDepartureStation;
+        private System.Windows.Forms.Label lblArrivalStation;
     }
 }
