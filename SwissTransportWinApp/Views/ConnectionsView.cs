@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SwissTransport;
+using System;
 using System.Windows.Forms;
-using SwissTransport;
 
 namespace SwissTransportWinApp
 {
@@ -40,7 +33,7 @@ namespace SwissTransportWinApp
 
         private ListViewItem ShowConnections(Connection connection)
         {
-            string[] connections = {connection.From.Departure, connection.From.Station.Name, connection.To.Station.Name, connection.To.Arrival, connection.Duration, connection.From.Platform};
+            string[] connections = {connection.From.Departure.ToString(), connection.From.Station.Name, connection.To.Station.Name, connection.To.Arrival.ToString(), connection.Duration.Substring(3, 5), connection.From.Platform};
             return new ListViewItem(connections);
         }
         private void AddItemsToDropdown(ComboBox comboBox)

@@ -47,9 +47,9 @@ namespace SwissTransportWinApp
         private string getConnectionInfos(Connection connection)
         {
             string departureStation = connection.From.Station.Name;
-            string departureTime = connection.From.Departure;
+            string departureTime = connection.From.Departure.ToString();
             string arrivalStation = connection.To.Station.Name;
-            string arrivalTime = connection.To.Arrival;
+            string arrivalTime = connection.To.Arrival.ToString();
 
             return "von: " + departureStation + "; Abfahrtszeit: " + departureTime + "; nach: " + arrivalStation + "; Ankunftszeit: " + arrivalTime;
         }

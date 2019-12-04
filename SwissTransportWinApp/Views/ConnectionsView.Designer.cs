@@ -32,8 +32,6 @@
             this.btnSearchConnections = new System.Windows.Forms.Button();
             this.cboDepartureStation = new System.Windows.Forms.ComboBox();
             this.cboArrivalStation = new System.Windows.Forms.ComboBox();
-            this.btnChangeStations = new System.Windows.Forms.Button();
-            this.connectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblConnections = new System.Windows.Forms.Label();
             this.lstConnections = new System.Windows.Forms.ListView();
             this.cDepartureTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,6 +40,10 @@
             this.cArrivalTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cTravelTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cLine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnChangeStations = new System.Windows.Forms.Button();
+            this.connectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnChangeDate = new System.Windows.Forms.Button();
+            this.btnChangeTime = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.connectionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             this.btnSearchConnections.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSearchConnections.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearchConnections.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchConnections.Location = new System.Drawing.Point(416, 174);
+            this.btnSearchConnections.Location = new System.Drawing.Point(415, 232);
             this.btnSearchConnections.Name = "btnSearchConnections";
             this.btnSearchConnections.Size = new System.Drawing.Size(149, 43);
             this.btnSearchConnections.TabIndex = 2;
@@ -78,23 +80,6 @@
             this.cboArrivalStation.TabIndex = 1;
             this.cboArrivalStation.TextUpdate += new System.EventHandler(this.cboArrivalStation_TextUpdate);
             // 
-            // btnChangeStations
-            // 
-            this.btnChangeStations.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnChangeStations.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnChangeStations.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeStations.Image = global::SwissTransportWinApp.Properties.Resources.changeStations2;
-            this.btnChangeStations.Location = new System.Drawing.Point(447, 108);
-            this.btnChangeStations.Name = "btnChangeStations";
-            this.btnChangeStations.Size = new System.Drawing.Size(86, 48);
-            this.btnChangeStations.TabIndex = 3;
-            this.btnChangeStations.UseVisualStyleBackColor = false;
-            this.btnChangeStations.Click += new System.EventHandler(this.btnChangeStations_Click);
-            // 
-            // connectionsBindingSource
-            // 
-            this.connectionsBindingSource.DataSource = typeof(SwissTransport.Connections);
-            // 
             // lblConnections
             // 
             this.lblConnections.AutoSize = true;
@@ -115,9 +100,9 @@
             this.cTravelTime,
             this.cLine});
             this.lstConnections.HideSelection = false;
-            this.lstConnections.Location = new System.Drawing.Point(12, 241);
+            this.lstConnections.Location = new System.Drawing.Point(12, 304);
             this.lstConnections.Name = "lstConnections";
-            this.lstConnections.Size = new System.Drawing.Size(958, 289);
+            this.lstConnections.Size = new System.Drawing.Size(958, 226);
             this.lstConnections.TabIndex = 7;
             this.lstConnections.UseCompatibleStateImageBehavior = false;
             this.lstConnections.View = System.Windows.Forms.View.Details;
@@ -153,11 +138,54 @@
             this.cLine.Text = "Linie";
             this.cLine.Width = 100;
             // 
+            // btnChangeStations
+            // 
+            this.btnChangeStations.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnChangeStations.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChangeStations.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeStations.Image = global::SwissTransportWinApp.Properties.Resources.changeStations2;
+            this.btnChangeStations.Location = new System.Drawing.Point(447, 108);
+            this.btnChangeStations.Name = "btnChangeStations";
+            this.btnChangeStations.Size = new System.Drawing.Size(86, 48);
+            this.btnChangeStations.TabIndex = 3;
+            this.btnChangeStations.UseVisualStyleBackColor = false;
+            this.btnChangeStations.Click += new System.EventHandler(this.btnChangeStations_Click);
+            // 
+            // connectionsBindingSource
+            // 
+            this.connectionsBindingSource.DataSource = typeof(SwissTransport.Connections);
+            // 
+            // btnChangeDate
+            // 
+            this.btnChangeDate.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnChangeDate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChangeDate.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeDate.Location = new System.Drawing.Point(324, 171);
+            this.btnChangeDate.Name = "btnChangeDate";
+            this.btnChangeDate.Size = new System.Drawing.Size(149, 43);
+            this.btnChangeDate.TabIndex = 8;
+            this.btnChangeDate.Text = "Datum";
+            this.btnChangeDate.UseVisualStyleBackColor = false;
+            // 
+            // btnChangeTime
+            // 
+            this.btnChangeTime.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnChangeTime.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChangeTime.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeTime.Location = new System.Drawing.Point(509, 171);
+            this.btnChangeTime.Name = "btnChangeTime";
+            this.btnChangeTime.Size = new System.Drawing.Size(149, 43);
+            this.btnChangeTime.TabIndex = 9;
+            this.btnChangeTime.Text = "Zeit";
+            this.btnChangeTime.UseVisualStyleBackColor = false;
+            // 
             // ConnectionsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 641);
+            this.ClientSize = new System.Drawing.Size(982, 503);
+            this.Controls.Add(this.btnChangeTime);
+            this.Controls.Add(this.btnChangeDate);
             this.Controls.Add(this.lstConnections);
             this.Controls.Add(this.lblConnections);
             this.Controls.Add(this.btnChangeStations);
@@ -186,5 +214,7 @@
         private System.Windows.Forms.ColumnHeader cArrivalTime;
         private System.Windows.Forms.ColumnHeader cTravelTime;
         private System.Windows.Forms.ColumnHeader cLine;
+        private System.Windows.Forms.Button btnChangeDate;
+        private System.Windows.Forms.Button btnChangeTime;
     }
 }

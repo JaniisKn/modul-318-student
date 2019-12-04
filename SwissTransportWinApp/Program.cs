@@ -16,7 +16,7 @@ namespace SwissTransportWinApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SelectionMenu());
+            Application.Run(new StartMenu());
         }
     }
 }

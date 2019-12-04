@@ -63,9 +63,39 @@ namespace SwissTransportWinApp.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AnachB {
+            get {
+                object obj = ResourceManager.GetObject("AnachB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AnachBklein {
+            get {
+                object obj = ResourceManager.GetObject("AnachBklein", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap changeStations2 {
             get {
                 object obj = ResourceManager.GetObject("changeStations2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconBhfTafelKlein {
+            get {
+                object obj = ResourceManager.GetObject("iconBhfTafelKlein", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
